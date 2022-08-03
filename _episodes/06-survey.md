@@ -1,6 +1,6 @@
 ---
 title: "Survey"
-slug: Lesson Title-survey
+slug: Principles of Software Engineering-survey
 layout: page
 ---
 

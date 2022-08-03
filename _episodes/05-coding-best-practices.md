@@ -38,7 +38,7 @@ Our code may embody some unique aspect of our research. Readable code can help o
 
 There's also our image to consider. If our code is badly laid out, messy and cryptic, others will assume that it is also buggy and sloppily written. They may assume that we undertake our research in a similarly slack manner.
 
-If we're working in a team to develop some code then readable source code can ensure that everyone can understand the code written by everyone else. This can help improve a team's **bus factor**, which is defined as the number of developers who need to be put out of action before noone understands the code.
+If we're working in a team to develop some code then readable source code can ensure that everyone can understand the code written by everyone else. This can help improve a team's [**bus factor**](https://en.wikipedia.org/wiki/Bus_factor), which is defined as the number of developers who need to be put out of action before noone understands the code.
 
 Writing readable code costs only a little more time than writing unreadable code, but the payback is immense. Reading and understanding source code is slow, laborious and can lead to misinterpretation. It is always a good idea to keep others in mind when writing code, so a good rule of thumb is to assume that someone will always read your code at a later date, and this includes a future version of yourself!
 
@@ -68,7 +68,7 @@ print(“Input value:”+i+” Output value:”+power(fibonacci(i), 2)+1);
 }
 }
 ~~~
-{: .language-c}
+{: .language-java}
 
 ...and this...
 
@@ -97,17 +97,17 @@ public class Functions
     }
 }
 ~~~
-{: .language-c}
+{: .language-java}
 
 ...but the second example will be more easily understood by the reader.
 
 Indentation makes a clear connection between blocks of code and the classes, functions or loops to which they belong. If a statement is longer than a single line on screen, indentation helps the reader understand where the statement begins and ends. White-space makes the code appear less cluttered and allows the grouping together of logically-related elements like constants or local variable declarations.
 
-In many languages, indentation is purely cosmetic (e.g. C/C++ or Java) and the number of spaces used to indent code is left to the developer to decide. However, in certain languages (e.g. Python or Occam) indentation is more restrictive because it has semantic significance: it defines a loop body or a function body.
+In many languages, indentation is purely cosmetic (e.g. Java or C/C++) and the number of spaces used to indent code is left to the developer to decide. However, in certain languages (e.g. Python or Occam) indentation is more restrictive because it has semantic significance: it defines a loop body or a function body.
 
 Many programming environments, also known as Integrated Development Environments or IDES (e.g. PyCharm, Eclipse, JBuilder, NetBeans and Microsoft Visual Studio), provide support for code formatting, and many text editors can be extended with support for language-specific indentation (e.g. Microsoft Visual Studio Code).
 
-Good formatting can impact upon design. A function with seven arguments might not be very readable on-screen, for example. To make it more readable, you could create a new data structure or class to hold some of the arguments. We could also break up a function that cannot be viewed on one screen into a number of smaller functions that can, if the function can be logically decomposed in this way.
+Good formatting can impact upon design. A function with seven arguments might not be very readable on-screen, for example. To make it more readable, you could create a new data structure or class to hold some of the arguments. We could also break up a function that cannot be viewed on one screen into a number of smaller functions that can, if the function can be logically decomposed in this way. However, note that in some circumstances, such as within a functional programming paradigm, having many arguments may be unavoidable!
 
 ### Naming Things
 

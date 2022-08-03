@@ -64,7 +64,7 @@ def approximate_pi(num_points):
         if r2 <= 1:
             inside += 1
 
-    return = 4 * inside / num_points
+    return 4 * inside / num_points
 
 pi = approximate_pi(1000000)
 print(pi)
@@ -80,8 +80,10 @@ print(pi)
 > 
 > We need a function which accepts an integer and returns the sum of the squares of integers up to **and including** this number.
 > i.e. 1 -> 1, 2 -> 5, 3 -> 14
+> 
+> Which one of the functions below would accomplish this?
 >
-> ~~~ python
+> ~~~
 > def sum_of_squares_a(limit):
 >     for i in range(limit):
 >         total = i * i
@@ -105,6 +107,7 @@ print(pi)
 >         total += i * i
 >     return total
 > ~~~
+> {: .language-python}
 > 
 > > ## Solution
 > > 
@@ -114,7 +117,7 @@ print(pi)
 > > - Function B stops the loop one iteration too early.
 > > - Function D stops the loop two iterations too early.
 > >
-> > ~~~ python
+> > ~~~
 > > def sum_of_squares_c(limit):
 > >     total = 0
 > >     for i in range(limit + 1):
@@ -124,10 +127,8 @@ print(pi)
 > > ~~~
 > > {: .language-python}
 > >
-> {: .solution}
-> 
+>{: .solution}
 {: .challenge}
-
 
 ### Function Composition
 
@@ -255,7 +256,7 @@ In the case of the line `alice.add_measurement(10)`, the value of the `self` par
 > Something we might need to calculate during our clinical trial is the dosage per body mass, often reported in units of milligrams per kilogram (mg/kg).
 > Which of the examples below would allow us to do this?
 >
-> ~~~ python
+> ~~~
 > class Patient_A:
 >     def __init__(self, name, dosage_mg, weight_kg):
 >         self.name = name
@@ -295,13 +296,14 @@ In the case of the line `alice.add_measurement(10)`, the value of the `self` par
 > {: .language-python}
 > 
 > > ## Solution
+> >
 > > The correct solution is `Patient_B`.
 > >
 > > - Class A doesn't provide the `self` argument to the new method - this will cause an error when we try to call the function.
 > > - Class C forgets to use `self.` to access the two data attributes on the instance of the class.
 > > - Class D does both of the above - it looks like it expects to receive the two data attributes when the function is called, but this avoids the point of putting the method within the class.
 > >
-> > ~~~ python
+> > ~~~
 > > class Patient_B:
 > >     def __init__(self, name, dosage_mg, weight_kg):
 > >         self.name = name
@@ -312,5 +314,5 @@ In the case of the line `alice.add_measurement(10)`, the value of the `self` par
 > >         return self.dosage_mg / self.weight_kg
 > > ~~~
 > > {: .language-python}
-> {: .solution}
+>{: .solution}
 {: .challenge}

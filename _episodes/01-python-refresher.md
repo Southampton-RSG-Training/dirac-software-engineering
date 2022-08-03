@@ -91,7 +91,7 @@ print(odd_numbers[3])
 ```
 {: .output}
 
-For much more information on lists, see https://docs.python.org/3/tutorial/datastructures.html#more-on-lists.
+For much more information on lists, see <https://docs.python.org/3/tutorial/datastructures.html#more-on-lists>.
 
 **Dictionaries** are the second type of collection, typically used to associate a key and a value - like the index of a book:
 
@@ -108,7 +108,7 @@ print(index["c++"])
 {: .language-python}
 
 ```
-2
+5
 ```
 {: .output}
 
@@ -127,7 +127,24 @@ index = {
 In this case, the value at the key `"python"` will have the last value we provided for it: `2`.
 
 The final collection type we'll introduce here is a **set**.
-Sets are similar to dictionaries, but 
+Sets are similar to dictionaries, but instead of storing key/value pairs, they only store keys.
+In this way, it's simply an unordered collection of unique keys and as such good if you want to perform set operations, e.g. for doing set union and intersection operations:
+
+``` python
+set1 = {"python", "c++", "fortran"}
+set2 = {"fortran", c#", "cobol", "python", "c"}
+set1.union(set2)
+set1.intersection(set2)
+```
+{: .language-python}
+
+```
+{'python', 'fortran', 'cobol', 'c#', 'c++', 'c'}
+{'python', 'fortran'}
+```
+{: .output}
+
+As a shorthand, you can also use `set1 | set2` and `set1 & set2` for doing union and intersection respectively instead.
 
 
 ## Looping and Branching

@@ -8,8 +8,8 @@ kind: "lesson"
 type: "episode" # The other valid option is "episode_r"
 
 # Overall title for pages.
-title: "Lesson Title"
-form_title: "Lesson+Title" # This is required for the surveys
+title: "Principles of Software Engineering"
+form_title: "Principles+of+Software+Engineering" # This is required for the surveys
 
 # Email address, no mailto:
 email: "rsginfo@soton.ac.uk"

@@ -283,7 +283,7 @@ That time, we used a function which converted temperatures in Celsius to Kelvin 
 
 In the same way, in object oriented programming, we can make things components of other things.
 
-We often use composition where we can say 'x *has a* y' - to use a clinical trial as an example again, we might want to say that a doctor *has* patients or that a patient *has* observations.
+We often use composition where we can say 'x *has a* y' - to use a clinical trial as an example again, we might want to say that a patient *has* observations.
 
 ~~~ python
 class Observation:
@@ -325,6 +325,31 @@ print(obs)
 
 Now we're using a composition of two custom classes to describe the relationship between two types of entity in the system that we're modelling.
 
+> ## Composition: What About Extending it Further?
+> 
+> Of course, reality is often more complex than a single relationship between two types of 'thing', and we can also add other classes and relationships to our model as required. Let's consider adding a doctor that has patients (just after the `Patient` class):
+> 
+> ~~~ python
+> class Doctor:
+>    """A doctor conducting a clinical trial."""
+>    def __init__(self, name):
+>        self.patients = []
+> 
+>    def add_patient(self, new_patient):
+>        # A crude check by name if this patient is already looked after
+>        # by this doctor before adding them
+>        for patient in self.patients:
+>            if patient.name == new_patient.name:
+>                return
+>        self.patients.append(new_patient)
+> ~~~
+> {: .language-python}
+> 
+> So, similarly to our `Patient` class, we specify that a doctor *has* patients, and have a. But note that we've also added a check to ensure that we only add the patient if the patient is not already in the doctor's list of patients. If so, we use `return` to exit early so we don't add the patient to the list.
+> 
+> This illustrates the power of the object oriented paradigm: we can extend our model of reality by adding new representations that directly represent real-world entities - and the relationships and behaviours that govern them - as needed.
+{: .callout}
+
 ### Inheritance
 
 The other type of relationship used in object oriented programming is **inheritance**.
@@ -339,8 +364,6 @@ To write our class in Python, we used the `class` keyword, the name of the class
 If the class **inherits** from another class, we include the parent class name in brackets.
 
 ~~~ python
-# file: inflammation/models.py
-
 class Observation:
     def __init__(self, day, value):
         self.day = day
@@ -398,11 +421,15 @@ As expected, an error is thrown because we cannot add an observation to `bob`, w
 
 We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
-There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class if we provide a new `__init__` for our subclass, so we'll need to call it ourselves.
-This makes sure that everything that needs to be initialised on the parent class has been, before we need to use it.
-If we don't define a new `__init__` method for our subclass, Python will look for one on the parent class and use it automatically.
-This is true of all methods - if we call a method which doesn't exist directly on our class, Python will search for it among the parent classes.
-The order in which it does this search is known as the **method resolution order** - a little more on this in the Multiple Inheritance callout below.
+> ## Inheritance: What About Extending it Further?
+>
+> Our example shows a single level of inheritance, but again we could take this further as needed. We could, for example, have a special type of `Patient` that largely behaves the same but needs to be modelled differently. In this case, we could add a class that is a subclass of `Patient`. Alternatively, we could have a different type of `Person` captured in our model - a good example would be our `Doctor`,which we could define thus:
+> 
+> ~~~ python
+> class Doctor(Person):
+>     # Rest of class same as above
+> ...
+> ~~~
+> {: .language-python}
+{: .callout}
 
-The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
-This is quite a common pattern, particularly for `__init__` methods, where we need to make sure an object is initialised as a valid `X`, before we can initialise it as a valid `Y` - e.g. a valid `Person` must have a name, before we can properly initialise a `Patient` model with their inflammation data

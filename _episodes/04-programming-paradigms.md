@@ -345,7 +345,7 @@ Now we're using a composition of two custom classes to describe the relationship
 > ~~~
 > {: .language-python}
 > 
-> So, similarly to our `Patient` class, we specify that a doctor *has* patients, and have a. But note that we've also added a check to ensure that we only add the patient if the patient is not already in the doctor's list of patients. If so, we use `return` to exit early so we don't add the patient to the list.
+> So, similarly to our `Patient` class, we specify that a doctor *has* patients, and have the ability to add them. But note that we've also added a check to ensure that we only add the patient if the patient is not already in the doctor's list of patients. If so, we use `return` to exit early so we don't add the patient to the list.
 > 
 > This illustrates the power of the object oriented paradigm: we can extend our model of reality by adding new representations that directly represent real-world entities - and the relationships and behaviours that govern them - as needed.
 {: .callout}
